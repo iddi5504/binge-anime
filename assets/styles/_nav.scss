@@ -1,0 +1,70 @@
+@import './variables';
+
+nav{
+    @include flexRow(space-around,row);
+    width:100%;
+    position: fixed;
+    top: 0;
+    z-index: 3;
+    color: white;
+    padding: 0vh 2vw;
+    transition: all 0.5s ease-in;
+    ul{
+        @include flexRow(end,row);
+        margin: 0px;
+        padding: 1vh 2vw;
+        list-style: none;
+        row-gap: 40px;
+        flex: 3;
+        li{
+            display: none;
+            &:last-child{
+                display: flex;
+                
+            }
+           
+        }
+        
+    }
+    .logo{
+        flex: 3;
+        padding: 5px 10px;
+        background: linear-gradient(red,yellow);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+
+    }
+    button{
+        background-color: #e0b930;
+        border-radius: 5px;
+        border: 1px solid black;
+        font-size: 16px;
+        font-weight: 500;
+        padding: 5px 15px;
+
+        &:hover{
+            background-color: red;       
+        }
+        
+
+    }
+}
+
+.changenav{
+    background: #1f1d19;
+    transition: all 0.5s ease-in;
+
+}
+
+@media screen and (min-width: 700px) {
+    nav{
+        ul{
+            li{
+                display: flex;
+            } 
+            justify-content: space-around;
+        }
+    }
+
+}
