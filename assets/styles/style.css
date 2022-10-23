@@ -25,18 +25,28 @@ nav ul {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: end;
-  -webkit-box-orient: horizontal;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
+      -ms-flex-direction: column;
+          flex-direction: column;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  margin: 0px;
-  padding: 1vh 2vw;
+  padding: 60px 0px;
+  height: calc(100vh);
+  -webkit-transform: translate(-100%);
+          transform: translate(-100%);
+  width: 100%;
+  background-color: #1f1d19;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-transition: 0.5s all ease;
+  transition: 0.5s all ease;
+  position: absolute;
+  top: 0px;
   list-style: none;
   row-gap: 40px;
   -webkit-box-flex: 3;
@@ -45,13 +55,25 @@ nav ul {
 }
 
 nav ul li {
-  display: none;
-}
-
-nav ul li:last-child {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  width: 100%;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-size: 1.3rem;
+  padding: 10px;
+}
+
+nav ul li:hover {
+  background-color: #3a2f18;
+  font-weight: 700;
+}
+
+nav ul li:last-child:hover {
+  background-color: transparent;
+  font-weight: 700;
 }
 
 nav .logo {
@@ -64,6 +86,7 @@ nav .logo {
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
+  z-index: 2;
 }
 
 nav button {
@@ -79,6 +102,91 @@ nav button:hover {
   background-color: red;
 }
 
+nav .menu-button {
+  z-index: 2;
+  z-index: 2;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+nav .menu-button .menu-bar {
+  height: 4px;
+  width: 37px;
+  background-color: #e0b930;
+  margin: 5px 2px;
+  border-radius: 3px;
+}
+
+nav .menu-button:hover .menu-bar {
+  -webkit-transition: 0.5s ease-in-out all;
+  transition: 0.5s ease-in-out all;
+  background-color: #ff892f;
+}
+
+nav [show-hamburger=true] .menu-bar:nth-child(1) {
+  -webkit-transform: rotate(38deg);
+          transform: rotate(38deg);
+  -webkit-transition: 0.5s ease-in-out all;
+  transition: 0.5s ease-in-out all;
+  background-color: white;
+  position: relative;
+  top: 15px;
+}
+
+nav [show-hamburger=true] .menu-bar:nth-child(3) {
+  -webkit-transform: rotate(-38deg);
+  transform: rotate(-38deg);
+  -webkit-transition: 0.5s ease-in-out all;
+  transition: 0.5s ease-in-out all;
+  background-color: white;
+  position: relative;
+  top: -12px;
+}
+
+nav [show-hamburger=true] .menu-bar:nth-child(2) {
+  width: 0px;
+  -webkit-transition: 0.5s ease-in-out all;
+  transition: 0.5s ease-in-out all;
+  opacity: 0;
+}
+
+nav .show-hamburger {
+  -webkit-transform: translateX(0%);
+          transform: translateX(0%);
+}
+
+@-webkit-keyframes animate {
+  0% {
+    -webkit-transform: translateX(-100%);
+            transform: translateX(-100%);
+  }
+  100% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+}
+
+@keyframes animate {
+  0% {
+    -webkit-transform: translateX(-100%);
+            transform: translateX(-100%);
+  }
+  100% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+}
+
 .changenav {
   background: #1f1d19;
   -webkit-transition: all 0.5s ease-in;
@@ -87,10 +195,36 @@ nav button:hover {
 
 @media screen and (min-width: 700px) {
   nav ul {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: end;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     -ms-flex-pack: distribute;
         justify-content: space-around;
+    margin: 0px;
+    display: flex;
+    padding: 1vh 2vw;
+    list-style: none;
+    row-gap: 40px;
+    -webkit-box-flex: 3;
+        -ms-flex: 3;
+            flex: 3;
   }
   nav ul li {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  nav ul li:last-child {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
